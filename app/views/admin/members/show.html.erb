@@ -1,0 +1,30 @@
+<% title "Member Details" %>
+
+<div data-role="content">
+	<h3>Name: <%= @member.name %></h3>
+	<p>
+		<b>Card:</b>
+		<%= @member.card_num %>
+	</p>
+
+	<p>
+		<% if @member.registered? %>
+			<b>Registered: <%= @member.reg_date %></b>
+		<% else %>
+			<b>Not Registered</b>
+		<% end %>
+
+	<p>
+		<b>email:</b>
+		<%= @member.email %>
+	</p>
+	</p>
+	
+	<h3>Offers Selected</h3>
+	<ul data-role  = "listview">
+		<%= render :partial => "shared/product", :collection => @member.products %>
+	</ul>
+</div>
+
+<%= link_to 'Edit Member', edit_admin_member_path(@member), "data-role" => "button", "data-icon" => "gear" %>
+<%= link_to 'Member List', admin_members_path, "data-role" => "button", "data-icon" => "back" %>

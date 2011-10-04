@@ -1,0 +1,68 @@
+<% title "Edit member" %>
+
+<div data-role="content">
+	<%= form_for :memberandprod, :url => admin_member_path(@member), :method => :put do |form| %>
+		<% if @member.errors.any? %>
+			<div id="error_explanation">
+				<h2><%= pluralize(@member.errors.count, "error") %> prohibited this member from being saved:</h2>
+
+				<ul>
+					<% @member.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+
+		<%= form.fields_for @member do |f| %>
+
+			<div class="field">
+				<%= f.label :name %><br />
+				<%= f.text_field :name %>
+			</div>
+			<div class="field">
+				<%= f.label :card_num %><br />
+				<%= f.number_field :card_num %>
+			</div>
+			
+			  <div class="field">
+			    <%= f.label :email %><br />
+			    <%= f.text_field :email %>
+			  </div>
+
+			
+			<div data-role="fieldcontains">
+			    <fieldset data-role="controlgroup">
+			    	<legend>Registration:</legend>
+					<%= f.radio_button :registered, "true" %>
+					<%= f.label "registered_true" %>
+					<%= f.radio_button :registered, "false" %>
+					<%= f.label "registered_false" %>
+				</fieldset>
+			</div>
+			
+		<% end %>
+
+		<div data-role="fieldcontains">
+			<h3>Select/Update Product Offers</h3>
+			<fieldset data-role="controlgroup">
+				<%= form.fields_for :products do |f| %>
+					<% Product.all.each do |prod| %>
+						<p>
+							<%= f.check_box prod.id, :checked => @member.offered?(prod), "type" => "checkbox" -%> 
+							<%= f.label prod.id, prod.name -%>
+						</p>
+					<% end %>
+	
+				<% end %>
+			</fieldset>
+		</div>
+
+		<div class="actions">
+			<%= form.submit "update member" %>
+		</div>
+	<% end %>
+
+</div>
+<%= link_to 'Show', admin_member_path(@member), "data-role" => "button", "data-icon" => "gear" %>
+<%= link_to 'Back', admin_members_path, "data-role" => "button", "data-icon" => "back" %>

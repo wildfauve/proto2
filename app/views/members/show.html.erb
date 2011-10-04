@@ -1,0 +1,23 @@
+<% title "Member Details" %>
+
+<div data-role="content">
+	<h3>Hi: <%= @member.name %></h3>
+	<p>
+		<b>Your Card Number is:</b>
+		<%= @member.card_num %>
+	</p>
+
+	<p>
+		<% if @member.registered? %>
+			<b>You registered on this date: <%= @member.reg_date %></b>
+			<%= link_to 'Remove Registration', member_registers_path(@member), "data-role" => "button", "data-icon" => "star"%>
+		<% else %>
+			<%= link_to 'Remove Registration', member_registers_path(@member), "data-role" => "button", "data-icon" => "star"%>
+		<% end %>		
+	</p>
+	<p>
+		<%= link_to 'Check out your Offers', member_offers_path(@member), "data-role" => "button", "data-icon" => "star"%>
+	</p>
+	
+</div>
+

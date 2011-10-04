@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css" />
+	<%= stylesheet_link_tag    "application" %>
+	<%= javascript_include_tag "application" %>
+	
+<script src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>	
+
+	<%= csrf_meta_tag %>
+</head>
+<body>
+	<div data-role="page">
+		<div id="user_nav", data-role="header">
+			<h1><%= content_for?(:title) ? content_for(:title) : 'No Title' %></h1>  
+			<div class="ui-btn-right">
+				<% if current_user %>  
+					Logged in as <%= current_user.name %>  
+					<%= link_to "Log out", log_out_path, "data-role" => "button", "data-icon" => "gear" %>  
+				<% else %>  
+					<%= link_to "Log in", log_in_path, "data-role" => "button", "data-icon" => "gear" %>  
+				<% end %>
+			</div>
+			<ul data-role="listview">  
+				<%- flash.each do |name, msg| -%>
+					<li><%= content_tag :div, msg, :id => "flash_#{name}" %></li>
+				<% end %>      
+			</ul>
+		</div>
+
+
+		<%= yield %>
+	</div>
+</body>
+</html>

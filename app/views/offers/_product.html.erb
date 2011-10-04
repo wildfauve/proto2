@@ -1,0 +1,9 @@
+<li>
+	<%= link_to member_offer_path(@member, product)  do %>
+		<% if !product.image_url.nil? %>
+			<%= image_tag product.image_url(:thumb) %>
+		<% end %>
+		<h3><%=product.name%></h3>
+		<p><%= product.desc %></p>
+	<% end %>
+</li>

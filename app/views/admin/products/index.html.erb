@@ -1,0 +1,10 @@
+<% title "Offers" %>
+
+<div data-role = "content">
+	<ul data-role  = "listview">
+		<%= render :partial => "shared/product", :collection => @products %>
+	</ul>
+</div>
+
+
+<%= link_to 'New Product', new_admin_product_path, "data-role" => "button", "data-icon" => "plus" %>

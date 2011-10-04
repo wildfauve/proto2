@@ -1,0 +1,17 @@
+<% title "Logs" %>
+
+<div data-role = "content">
+	<ul data-role  = "listview">
+		<% for log in @logs do %>
+			<li>
+				<h3><%=log.time%></h3>
+				<p>Accessing User: <%= log.user %></p>
+				<% log.entry.each do |k, v| %>
+					<p><%= "#{k} = #{v}" %></p>
+				<% end %>
+			</li>
+		<% end %>
+	</ul>
+</div>
+
+

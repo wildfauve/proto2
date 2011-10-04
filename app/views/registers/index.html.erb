@@ -1,0 +1,32 @@
+<% title "Member Registration" %>
+
+<script type="text/javascript">
+	$('.register_confirm').live('tap',function() {
+		var offerurl, memname, memcard;
+		offerurl = $("#member").attr("data-offersurl");
+		memname = $("#member").attr("data-name");
+		memcard = $("#member").attr("data-id");
+		$.Storage.set({"memname":memname, "memcard":memcard, "offerurl":offerurl});
+	});
+	$('.register_reject').live('tap',function() {
+		var offerurl, memname, memcard;
+		$.Storage.remove("memname");
+		$.Storage.remove("memcard");
+		$.Storage.remove("offerurl");
+	});
+	
+</script>
+
+<div data-role="content">
+	<div id="member" data-id="<%=@member.card_num%>" data-name="<%=@member.name%>" class="member_reg" data-offersurl="<%= member_offers_path(@member)%>">
+		
+		<% if @member.registered?%>
+
+			<%= link_to "Remove Registration", member_register_path(@member, 1), :method => :delete, :class => "register_reject", "data-role" => "button", "data-icon" => "delete"  if @member.registered %>
+		
+		<% else %>
+			<%= link_to "Register", member_registers_path(@member), :method => :post, "data-role" => "button", "data-icon" => "check", :class => "register_confirm" %>
+		
+		<% end %>
+	</div>
+</div>

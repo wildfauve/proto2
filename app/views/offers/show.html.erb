@@ -1,0 +1,30 @@
+<% title "Offer Details" %>
+
+<div data-role="content">
+	<% if !@product.image_url.nil? %>
+		<p>
+			<%= image_tag @product.image_url(:thumb) %>
+		</p>
+	<% end %>
+
+	<p>
+		<b>Name:</b>
+		<%= @product.name %>
+	</p>
+
+	<p>
+		<b>Short Description:</b>
+		<%= @product.desc %>
+	</p>
+	
+	<div data-role="collapsible" data=collasped="true">
+			<h3>Long Description:</h3>
+			<p><%= @product.long_desc %></p>
+	</div>
+	
+	
+
+
+</div>
+
+<%= link_to 'My Offers', member_offers_path(@member), "data-role" => "button", "data-icon" => "back" %>

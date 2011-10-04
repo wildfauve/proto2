@@ -1,0 +1,11 @@
+<% title "Member Registration" %>
+
+<div data-role="content">
+	<% if @member.registered?%>
+		<p>Thanks <%= @member.name %> for Registering</p>
+	<% else %>
+		<p>Thanks <%= @member.name %> Sorry to see you go</p>
+	<% end %>
+
+
+</div>

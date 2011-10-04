@@ -1,0 +1,33 @@
+<% title "Product Details" %>
+
+<div data-role="content">
+	<% if !@product.image_url.nil? %>
+		<p>
+			<%= image_tag @product.image_url %>
+		</p>
+	<% end %>
+
+	<p>
+		<b>Name:</b>
+		<%= @product.name %>
+	</p>
+
+	<p>
+		<b>Short Description:</b>
+		<%= @product.desc %>
+	</p>
+	
+	<div data-role="collapsible" data=collasped="true">
+			<h3>Long Description:</h3>
+			<p><%= @product.long_desc %></p>
+	</div>
+	
+	
+
+
+</div>
+
+<%= link_to 'Edit Product', edit_admin_product_path(@product), "data-role" => "button", "data-icon" => "gear" %>
+<%= link_to 'Delete Product', admin_product_path(@product), confirm: 'Are you sure?', method: :delete, "data-role" => "button", "data-icon" => "delete"  %>
+<%= link_to 'Offer List', admin_products_path, "data-role" => "button", "data-icon" => "back" %>
+
