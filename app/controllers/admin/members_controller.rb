@@ -18,6 +18,7 @@ class Admin::MembersController < ApplicationController
   # GET /members/1.json
   def show
     @member = Member.find(params[:id])
+    @products = @member.products
 
     respond_with do |format|
       format.html # show.html.erb

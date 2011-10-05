@@ -9,6 +9,8 @@ class Member
   field :reg_date, :type => Time
   field :email
   
+  #parent.children.delete child 
+  
   def registered=(value)
     write_attribute(:registered, value)
     if value == false
@@ -19,20 +21,21 @@ class Member
   end
   
   def offered?(offer)
-      self.products.includes(offer).count == 1 ? true : false
+      self.products.include?(offer)
   end
   
   def modify_products(product_list)
     if product_list
       product_list.each do |k, v|
         prod = Product.find(k)
+        Rails.logger.info(">>>Member Model>>: #{k}, #{v} #{prod}")
         if v == "1"
-          self.products.push prod unless self.products.includes(prod).count == 1
+          self.products.push prod unless self.products.include?(prod)
         else
-          self.products.delete(prod)
+          self.products.delete(prod) if self.products.include?(prod)  
         end
+        self.save
       end
-      save!
     end
   end
   

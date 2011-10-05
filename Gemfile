@@ -18,8 +18,8 @@ end
 gem 'jsonify-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
-gem "mongoid", "~>2.0"
-gem "bson_ext", "~>1.3"
+gem "mongoid", "~>2.3"
+gem "bson_ext", "~>1.4"
 gem 'carrierwave'
 gem 'mini_magick'
 

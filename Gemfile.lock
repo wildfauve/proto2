@@ -32,8 +32,8 @@ GEM
       multi_json (~> 1.0)
     arel (2.2.1)
     bcrypt-ruby (3.0.1)
-    bson (1.3.1)
-    bson_ext (1.3.1)
+    bson (1.4.0)
+    bson_ext (1.4.0)
     builder (3.0.0)
     carrierwave (0.5.4)
       activesupport (~> 3.0)
@@ -65,11 +65,11 @@ GEM
     mime-types (1.16)
     mini_magick (3.2.1)
       subexec (~> 0.0.4)
-    mongo (1.3.1)
-      bson (>= 1.3.1)
-    mongoid (2.2.0)
-      activemodel (~> 3.0)
-      mongo (~> 1.3)
+    mongo (1.4.0)
+      bson (= 1.4.0)
+    mongoid (2.3.0)
+      activemodel (~> 3.1)
+      mongo (~> 1.4)
       tzinfo (~> 0.3.22)
     multi_json (1.0.3)
     polyglot (0.3.2)
@@ -130,13 +130,13 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby
-  bson_ext (~> 1.3)
+  bson_ext (~> 1.4)
   carrierwave
   coffee-rails (~> 3.1.0)
   jquery-rails
   jsonify-rails
   mini_magick
-  mongoid (~> 2.0)
+  mongoid (~> 2.3)
   rails (= 3.1.0)
   sass-rails (~> 3.1.0)
   thin
