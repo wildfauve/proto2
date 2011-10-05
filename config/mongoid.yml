@@ -8,9 +8,9 @@ test:
 
 # set these environment variables on your prod server
 production:
-  host: <%= ENV['MONGOHQ_URL'] %>
-  username: heroku
-  database: proto2  
+    host: <%= ENV['MONGOHQ_URL'] %>
+    username: heroku
+    database: proto2  
   # slaves:
   #   - host: slave1.local
   #     port: 27018
