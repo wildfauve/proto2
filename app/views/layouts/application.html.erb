@@ -9,7 +9,7 @@
 	<%= csrf_meta_tag %>
 </head>
 <body>
-	<div data-role="page">
+	<div id="page"data-role="page">
 		<div id="user_nav", data-role="header" data-position="fixed">
 			<div id="cust_header">
 				<h1><%= content_for?(:title) ? content_for(:title) : 'No Title' %></h1>  
