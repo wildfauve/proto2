@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   private  
     
     def check_authorisation
-      Rails.logger.info(">>>Check Auth>>: #{session.inspect}")
        # exception handling based on user authorisation
        raise Exceptions::NotAuthorized if current_user.nil?
        raise Exceptions::NotAuthorized unless current_user.name == "admin"

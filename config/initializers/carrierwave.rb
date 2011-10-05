@@ -6,4 +6,9 @@ CarrierWave.configure do |config|
 
   # Storage access url
   config.grid_fs_access_url = "/grid"
+  
+  config.cache_dir = "uploads"
+  
+  config.root = Rails.root.join('tmp')
+  
 end
