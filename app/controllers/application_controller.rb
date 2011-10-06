@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   include Exceptions
-  protect_from_forgery
   rescue_from Exceptions::NotAuthorized, :with => :user_not_authorized
   helper_method :current_user
   

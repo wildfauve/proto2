@@ -15,7 +15,7 @@
 			<% end %>
 			<div data-role="controlgroup" data-type="horizontal">
 				<%= link_to 'Edit', edit_admin_member_path(member), "data-role" => "button", "data-icon" => "gear" %>
-				<%= link_to 'Destroy', admin_member_path(member), method: :delete, "data-role" => "button", "data-icon" => "delete" %>
+				<%= link_to 'Destroy', admin_member_path(member), :method => :delete, "data-role" => "button", "data-icon" => "delete" %>
 			</div>
 			
 		<% end %>
