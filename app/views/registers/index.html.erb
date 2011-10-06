@@ -18,7 +18,7 @@
 </script>
 
 <div data-role="content">
-	<div id="member" data-id="<%=@member.card_num%>" data-name="<%=@member.name%>" class="member_reg" data-offersurl="<%= member_offers_path(@member)%>">
+	<div id="member" data-id="<%=@member.card%>" data-name="<%=@member.name%>" class="member_reg" data-offersurl="<%= member_offers_path(@member)%>">
 		
 		<% if @member.registered?%>
 

@@ -3,8 +3,8 @@ class Member
   
   has_and_belongs_to_many :products
   
-  field :name
-  field :card_num
+  field :name, :type => String
+  field :card, :type => String
   field :registered, :type => Boolean, :default => false
   field :reg_date, :type => Time
   field :email

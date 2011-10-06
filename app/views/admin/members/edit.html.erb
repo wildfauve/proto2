@@ -21,8 +21,8 @@
 				<%= f.text_field :name %>
 			</div>
 			<div class="field">
-				<%= f.label :card_num %><br />
-				<%= f.number_field :card_num %>
+				<%= f.label :card %><br />
+				<%= f.text_field :card %>
 			</div>
 			
 			  <div class="field">
@@ -65,4 +65,4 @@
 
 </div>
 <%= link_to 'Show', admin_member_path(@member), "data-role" => "button", "data-icon" => "gear" %>
-<%= link_to 'Back', admin_members_path, "data-role" => "button", "data-icon" => "back" %>
+<%= link_to 'Member List', admin_members_path, "data-role" => "button", "data-icon" => "back" %>
