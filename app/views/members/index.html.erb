@@ -1,0 +1,19 @@
+<% title "Members" %>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		var offerurl;
+		offerurl = $.Storage.get("offerurl");
+		if (offerurl) {
+			//alert( 'This page was just enhanced by jQuery Mobile!' + offerurl );
+			window.location.replace(offerurl);
+		}
+		else {
+			$('div#membersland')
+			  .html('<p><em>No Local Information Found, try Registering</em></p>');
+		};
+		
+	});	
+</script>
+
+<div id="membersland"></div>

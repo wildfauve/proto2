@@ -4,7 +4,7 @@
 	<%= stylesheet_link_tag    "application" %>
 	<%= javascript_include_tag "application" %>
 	
-<script src="http://code.jquery.com/mobile/1.0rc1/jquery.mobile-1.0rc1.min.js"></script>	
+	<script src="http://code.jquery.com/mobile/1.0rc1/jquery.mobile-1.0rc1.min.js"></script>	
 
 	<%= csrf_meta_tag %>
 </head>
@@ -12,7 +12,7 @@
 	<div id="page"data-role="page">
 		<div id="user_nav", data-role="header" data-position="fixed">
 			<div id="cust_header">
-				<h1><%= content_for?(:title) ? content_for(:title) : 'No Title' %></h1>  
+				<h1><%= content_for(:title) %></h1>  
 			</div>
 			<div class="ui-btn-right">
 				<% if current_user %>  

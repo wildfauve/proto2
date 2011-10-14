@@ -4,7 +4,7 @@ class RegistersController < ApplicationController
   
   # GET /members/1/registers
   def index
-    Rails.logger.info(">>>Register Controller>>Index: #{params.inspect}")
+    #Rails.logger.info(">>>Register Controller>>Index: #{params.inspect}")
     @member = Member.find(params[:member_id])
     respond_with do |format|
       format.html # index.html.erb

@@ -9,7 +9,6 @@ class Member
   field :reg_date, :type => Time
   field :email
   
-  #parent.children.delete child 
   
   def registered=(value)
     write_attribute(:registered, value)

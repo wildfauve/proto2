@@ -10,9 +10,9 @@
 	<p>
 		<% if @member.registered? %>
 			<b>You registered on this date: <%= @member.reg_date %></b>
-			<%= link_to 'Do you Really Want to Quit?', member_register_path(@member, 1), :method => :delete, "data-role" => "button", "data-icon" => "star"%>
+			<%= link_to 'Click here to Remove Registration', member_registers_path(@member), "data-role" => "button", "data-icon" => "star"%>
 		<% else %>
-			<%= link_to 'Why Not Join Us', member_registers_path(@member), "data-role" => "button", "data-icon" => "star"%>
+			<%= link_to 'Click Here to Register', member_registers_path(@member), "data-role" => "button", "data-icon" => "star"%>
 		<% end %>		
 	</p>
 	<p>

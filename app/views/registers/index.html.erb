@@ -1,18 +1,19 @@
 <% title "Member Registration" %>
 
 <script type="text/javascript">
-	$('.register_confirm').live('tap',function() {
+	$('#register_confirm').live('tap',function() {
 		var offerurl, memname, memcard;
-		offerurl = $("#member").attr("data-offersurl");
+		offerurl = window.location.origin + $("#member").attr("data-offersurl");
 		memname = $("#member").attr("data-name");
 		memcard = $("#member").attr("data-id");
 		$.Storage.set({"memname":memname, "memcard":memcard, "offerurl":offerurl});
+		//alert("Add to Storage");
 	});
-	$('.register_reject').live('tap',function() {
-		var offerurl, memname, memcard;
+	$('#register_reject').live('tap',function() {
 		$.Storage.remove("memname");
 		$.Storage.remove("memcard");
 		$.Storage.remove("offerurl");
+		//alert("Deleted Storage");
 	});
 	
 </script>
@@ -22,10 +23,10 @@
 		
 		<% if @member.registered?%>
 
-			<%= link_to "Remove Registration", member_register_path(@member, 1), :method => :delete, :class => "register_reject", "data-role" => "button", "data-icon" => "delete"  if @member.registered %>
+			<%= link_to "Remove Registration", member_register_path(@member, 1), :method => :delete, :id => "register_reject", "data-role" => "button", "data-icon" => "delete"  if @member.registered %>
 		
 		<% else %>
-			<%= link_to "Register", member_registers_path(@member), :method => :post, "data-role" => "button", "data-icon" => "check", :class => "register_confirm" %>
+			<%= link_to "Register", member_registers_path(@member), :method => :post, "data-role" => "button", "data-icon" => "check", :id => "register_confirm" %>
 		
 		<% end %>
 	</div>
