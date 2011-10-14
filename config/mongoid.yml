@@ -11,6 +11,9 @@ production:
     uri: <%= ENV['MONGOHQ_URL'] %>
     username: heroku
     database: proto2  
+    #host: localhost
+    #database: proto2_production
+    
   # slaves:
   #   - host: slave1.local
   #     port: 27018
