@@ -1,11 +1,12 @@
 class OffersController < ApplicationController
   
   respond_to :html, :json
+  before_filter :check_registered
   
   # GET /members/1/offers
   # Provides a list of the Member's Current Offers
   def index
-    @member = Member.find(params[:member_id])
+    #@member = Member.find(params[:member_id])
     @products = @member.products
   end
   
@@ -19,6 +20,17 @@ class OffersController < ApplicationController
   
   end
   
+  private
+  
+  def check_registered
+    @member = Member.find(params[:member_id])
+    if !@member.registered
+      flash[:error] = "You haven't registered yet."
+      respond_to do |format|
+        format.html {redirect_to member_path(@member)}
+      end
+    end
+  end
   
   
 end

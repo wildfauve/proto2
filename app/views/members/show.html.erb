@@ -11,13 +11,13 @@
 		<% if @member.registered? %>
 			<b>You registered on this date: <%= @member.reg_date %></b>
 			<%= link_to 'Click here to Remove Registration', member_registers_path(@member), "data-role" => "button", "data-icon" => "star"%>
+			<p>
+			<%= link_to 'Check out your Offers', member_offers_path(@member), "data-role" => "button", "data-icon" => "star"%>
+			</p>
+			
 		<% else %>
 			<%= link_to 'Click Here to Register', member_registers_path(@member), "data-role" => "button", "data-icon" => "star"%>
 		<% end %>		
-	</p>
-	<p>
-		<%= link_to 'Check out your Offers', member_offers_path(@member), "data-role" => "button", "data-icon" => "star"%>
-	</p>
-	
+	</p>	
 </div>
 
