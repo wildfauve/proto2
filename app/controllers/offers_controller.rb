@@ -23,8 +23,10 @@ class OffersController < ApplicationController
   private
   
   def check_registered
-    @member = Member.find(params[:member_id])
-    if !@member.registered
+    @member = Member.first( conditions: { id: params[:member_id]} )
+    if  @member.nil?
+      render :text => "Not Found", :status => 404
+    elsif !@member.registered
       flash[:error] = "You haven't registered yet."
       respond_to do |format|
         format.html {redirect_to member_path(@member)}
