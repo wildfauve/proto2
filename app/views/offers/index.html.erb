@@ -5,7 +5,7 @@
 	
 	<% if !@products.empty? %>
 	
-		<h4>Store: <%= @member.store.name %></h4>
+		<h4>Store: <%= @member.store.nil? ? "Not Yet Defined" : @member.store.name %></h4>
 	
 		<ul data-role  = "listview">
 			<%= render :partial => "product", :collection => @products %>
