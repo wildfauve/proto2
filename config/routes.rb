@@ -9,6 +9,7 @@ Proto2::Application.routes.draw do
     resources :members
     resources :products
     resources :logs, :only => [:index]
+    resources :stores
   end 
   
   resources :sessions

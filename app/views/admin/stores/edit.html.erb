@@ -1,0 +1,28 @@
+<% title "Edit Stores" %>
+
+<div data-role="content">
+	<%= form_for @store, :url => admin_store_path(@store) do |form| %>
+	  <% if @store.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@store.errors.count, "error") %> prohibited this store from being saved:</h2>
+
+	      <ul>
+	      <% @store.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	
+	  <div class="field">
+	    <%= form.label :name %><br />
+	    <%= form.text_field :name %>
+	  </div>
+
+	  <div class="actions">
+	    <%= form.submit "Save store" %>
+	  </div>
+	<% end %>
+</div>
+<%= link_to 'Show', admin_store_path(@store), "data-role" => "button", "data-icon" => "gear" %>
+<%= link_to 'Store List', admin_stores_path, "data-role" => "button", "data-icon" => "back" %>

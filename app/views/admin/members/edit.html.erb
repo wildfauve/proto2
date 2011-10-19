@@ -30,6 +30,13 @@
 			    <%= f.text_field :email %>
 			  </div>
 
+			<div data-role="fieldcontains">
+			    <fieldset data-role="controlgroup">
+			    	<legend>Store:</legend>
+					<%= select_tag( :store, options_for_select(Store.all.map{|s| [s.name, s.id]}, :selected => @member.store.id ))%>
+				</fieldset>
+			</div>
+
 			
 			<div data-role="fieldcontains">
 			    <fieldset data-role="controlgroup">

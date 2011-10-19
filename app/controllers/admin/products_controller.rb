@@ -39,18 +39,18 @@ class Admin::ProductsController < ApplicationController
     # GET /products/1/edit
     def edit
       @product = Product.find(params[:id])
-      Rails.logger.info(">>>product Controller>>EDIT: #{@product.inspect}")
+      #Rails.logger.info(">>>product Controller>>EDIT: #{@product.inspect}")
     end
 
     # POST /products
     # POST /products.json
     def create
-      Rails.logger.info(">>>product Controller>>CREATE: #{params.inspect}")
+      #Rails.logger.info(">>>product Controller>>CREATE: #{params.inspect}")
       @product = Product.new(params[:product])
 
       respond_with do |format|
         if @product.save
-          Rails.logger.info(">>>product Controller>>CREATE: #{@product.inspect}")
+          #Rails.logger.info(">>>product Controller>>CREATE: #{@product.inspect}")
           format.html { redirect_to admin_product_path(@product), notice: "Product Created" }
           #format.json { render :jsonify => @product, :status => :created, :location => product_path(@product) }
         else
@@ -64,7 +64,6 @@ class Admin::ProductsController < ApplicationController
     # PUT /products/1.json
     def update
       @product = Product.find(params[:id])
-      Rails.logger.info(">>>product Controller>>UPDATE: #{@product.inspect}")
       respond_with do |format|
         if @product.update_attributes(params[:product])
           format.html { redirect_to admin_product_path(@product), notice: 'product was successfully updated.' }

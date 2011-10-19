@@ -6,6 +6,7 @@ class Admin::MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
+    #Rails.logger.info(">>>ADMIN::Member Controller>>Index: #{@module_name}")
     @members = Member.all
 
     respond_with do |format|
@@ -55,9 +56,13 @@ class Admin::MembersController < ApplicationController
     respond_with do |format|
       if @member.save
         #UserMailer.welcome_email(@member).deliver
+        
         reg_id = url_for member_registers_path(@member)
         #Rails.logger.info(">>>Member Controller>>CREATE: #{@member.inspect}")
         
+        
+        store = Store.find(params[:store])
+        store.members.push @member
         @member.modify_products(params[:memberandprod][:products]) if params[:memberandprod]
                 
         format.html { redirect_to admin_member_path(@member), notice: "For Registration use: #{reg_id}." }
@@ -73,10 +78,14 @@ class Admin::MembersController < ApplicationController
   # PUT /members/1.json
   def update
     @member = Member.find(params[:id])
-    Rails.logger.info(">>>Member Controller>>UPDATE: #{params.inspect}")
+    #Rails.logger.info(">>>Member Controller>>UPDATE: #{params.inspect}")
 
     respond_with do |format|
       if @member.update_attributes(params[:memberandprod][:member])
+        
+        
+        store = Store.find(params[:store])
+        store.members.push @member
         
         @member.modify_products(params[:memberandprod][:products]) if params[:memberandprod][:products]
         

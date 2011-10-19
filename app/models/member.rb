@@ -3,6 +3,8 @@ class Member
   
   has_and_belongs_to_many :products
   
+  belongs_to :store
+  
   field :name, :type => String
   field :card, :type => String
   field :registered, :type => Boolean, :default => false

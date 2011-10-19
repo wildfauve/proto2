@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   include Exceptions
   rescue_from Exceptions::NotAuthorized, :with => :user_not_authorized
   helper_method :current_user
+  before_filter :get_module_name
   
   private  
     
@@ -26,6 +27,15 @@ class ApplicationController < ActionController::Base
       else  
         @current_user ||= User.find(session[:user_id]) if session[:user_id]  
       end
+    end
+    
+    def get_module_name
+        my_class_name = self.class.name
+        if my_class_name.index("::").nil? then
+          @module_name = nil
+        else
+          @module_name = my_class_name.split("::").first
+        end
     end
   
 end

@@ -1,0 +1,15 @@
+<% title "Store Details" %>
+
+<div data-role="content">
+	<p>
+		<b>Name:</b>
+		<%= @store.name %>
+	</p>
+
+
+</div>
+
+<%= link_to 'Edit Store', edit_admin_store_path(@store), "data-role" => "button", "data-icon" => "gear" %>
+<%= link_to 'Delete Store', admin_store_path(@store), confirm: 'Are you sure?', method: :delete, "data-role" => "button", "data-icon" => "delete"  %>
+<%= link_to 'Store List', admin_stores_path, "data-role" => "button", "data-icon" => "back" %>
+

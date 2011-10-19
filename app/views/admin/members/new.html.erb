@@ -33,8 +33,16 @@
 			
 			
 		<% end %>
+		<div data-role="fieldcontains">
+		    <fieldset data-role="controlgroup">
+		    	<legend>Store:</legend>
+				<%= select_tag( :store, options_for_select(Store.all.map{|s| [s.name, s.id]}) )%>
+			</fieldset>
+		</div>
+
 
 		<div data-role="fieldcontains">
+			<h3>Add Product Offers</h3>
 			<fieldset data-role="controlgroup">
 				<%= form.fields_for :products do |f| %>
 					<% Product.all.each do |prod| %>

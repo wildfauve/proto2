@@ -15,14 +15,16 @@
 				<%= image_tag "bannerlogo.jpg", :id => "banner_logo"%>
 				<h1><%= content_for(:title) %></h1>  
 			</div>
-			<div class="ui-btn-right">
-				<% if current_user %>  
-					Logged in as <%= current_user.name %>  
-					<%= link_to "Log out", log_out_path, "data-role" => "button", "data-icon" => "gear" %>  
-				<% else %>  
-					<%= link_to "Log in", log_in_path, "data-role" => "button", "data-icon" => "gear" %>  
-				<% end %>
-			</div>
+			<% if @module_name == "Admin" %>
+				<div class="ui-btn-right">
+					<% if current_user %>  
+						Logged in as <%= current_user.name %>  
+						<%= link_to "Log out", log_out_path, "data-role" => "button", "data-icon" => "gear" %>  
+					<% else %>  
+						<%= link_to "Log in", log_in_path, "data-role" => "button", "data-icon" => "gear" %>  
+					<% end %>
+				</div>
+			<% end %>
 		</div>
 			<ul data-role="listview">  
 				<%- flash.each do |name, msg| -%>
