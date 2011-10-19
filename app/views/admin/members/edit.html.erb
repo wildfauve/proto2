@@ -33,7 +33,11 @@
 			<div data-role="fieldcontains">
 			    <fieldset data-role="controlgroup">
 			    	<legend>Store:</legend>
-					<%= select_tag( :store, options_for_select(Store.all.map{|s| [s.name, s.id]}, :selected => @member.store.id ))%>
+					<% if @member.store.nil? %>
+						<%= select_tag( :store, options_for_select(Store.all.map{|s| [s.name, s.id]}))%>
+					<% else %>
+						<%= select_tag( :store, options_for_select(Store.all.map{|s| [s.name, s.id]}, :selected => @member.store.id ))%>
+					<% end %>
 				</fieldset>
 			</div>
 
