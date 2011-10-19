@@ -3,17 +3,20 @@
 <script type="text/javascript">
 	$('#register_confirm').live('tap',function() {
 		var offerurl, memname, memcard;
-		offerurl = window.location.origin + $("#member").attr("data-offersurl");
+		//offerurl = window.location.origin + $("#member").attr("data-offersurl");
+		offerurl = $("#member").attr("data-offersurl");
 		memname = $("#member").attr("data-name");
 		memcard = $("#member").attr("data-id");
-		$.Storage.set({"memname":memname, "memcard":memcard, "offerurl":offerurl});
-		//alert("Add to Storage");
+		window.localStorage.setItem("memname", memname);
+		window.localStorage.setItem("memcard", memcard);
+		window.localStorage.setItem("offerurl", offerurl);
+		alert("Add to Storage");
 	});
 	$('#register_reject').live('tap',function() {
-		$.Storage.remove("memname");
-		$.Storage.remove("memcard");
-		$.Storage.remove("offerurl");
-		//alert("Deleted Storage");
+		window.localStorage.removeItem("memname");
+		window.localStorage.removeItem("memcard");
+		window.localStorage.removeItem("offerurl");
+		alert("Deleted Storage");
 	});
 	
 </script>

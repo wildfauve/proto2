@@ -3,9 +3,9 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		var offerurl;
-		offerurl = $.Storage.get("offerurl");
+		offerurl = window.localStorage.getItem("offerurl");
 		if (offerurl) {
-			//alert( 'This page was just enhanced by jQuery Mobile!' + offerurl );
+			alert( 'Offer URL!' + offerurl );
 			window.location.replace(offerurl);
 		}
 		else {
