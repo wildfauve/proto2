@@ -24,7 +24,7 @@ class OffersController < ApplicationController
   def update
     #logs should really be filters
     Log.make(session[:user_id], {:member_id => params[:member_id], :product => params[:id], :action => :load, :type => :offer})
-    redirect_to member_offers_path(params[:member_id])
+    redirect_to member_offer_path(params[:member_id], params[:id])
   end
   
   private
