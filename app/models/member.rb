@@ -39,6 +39,10 @@ class Member
       end
     end
   end
+
+  def firstname
+    return self.name.split(" ")[0]
+  end
   
   
 end

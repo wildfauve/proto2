@@ -1,15 +1,17 @@
 <% title "Offers" %>
 
 <div data-role="content">
-	<h3>Name: <%= @member.name %></h3>
+	<h3>Hi <%= @member.firstname %></h3>
 	
 	<% if !@products.empty? %>
 	
-		<h4>Store: <%= @member.store.nil? ? "Not Yet Defined" : @member.store.name %></h4>
+		<h4>Here are your <%= @member.store.nil? ? "Store Not Yet Defined" : @member.store.name %> offers</h4>
 	
 		<ul data-role  = "listview">
 			<%= render :partial => "product", :collection => @products %>
 		</ul>
+	<% else %>
+		<h4>There isn't any offers for you at the moment</h4>
 	<% end %>
 	
 	

@@ -17,7 +17,14 @@ class OffersController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @product }
     end
+  end
   
+  # Used for a dummy adding an offer to the member's "card"
+  # PUT /members/1/offer
+  def update
+    #logs should really be filters
+    Log.make(session[:user_id], {:member_id => params[:member_id], :product => params[:id], :action => :load, :type => :offer})
+    redirect_to member_offers_path(params[:member_id])
   end
   
   private

@@ -8,13 +8,7 @@
 	<% end %>
 
 	<p>
-		<b>Name:</b>
-		<%= @product.name %>
-	</p>
-
-	<p>
-		<b>Short Description:</b>
-		<%= @product.desc %>
+		<%= @product.name  + " "  + @product.desc %>
 	</p>
 	
 	<div data-role="collapsible" data=collasped="true">
@@ -27,4 +21,5 @@
 
 </div>
 
-<%= link_to 'My Offers', member_offers_path(@member), "data-role" => "button", "data-icon" => "back" %>
+<%= link_to 'Load to Flybuys card', member_offer_path(@member), :method => :put, :confirm => "Offer Loaded", "data-role" => "button", "data-icon" => "plus" %>
+<%= link_to 'Back to Offers', member_offers_path(@member), "data-role" => "button", "data-icon" => "back" %>

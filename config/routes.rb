@@ -14,7 +14,7 @@ Proto2::Application.routes.draw do
   
   resources :sessions
 
-  resources :members, :only => [:show, :index] do
+  resources :members, :only => [:show, :index, :update] do
     resources :registers
     resources :offers
   end

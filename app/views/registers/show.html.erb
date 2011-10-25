@@ -2,7 +2,7 @@
 
 <div data-role="content">
 	<% if @member.registered?%>
-		<p>Thanks <%= @member.name %> for Registering</p>
+		<p>Thanks <%= @member.firstname %> for registering</p>
 	<% else %>
 		<p>Thanks <%= @member.name %> Sorry to see you go</p>
 	<% end %>
